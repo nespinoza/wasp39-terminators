@@ -70,6 +70,12 @@ ax2 = fig.add_subplot(gs[150+25:300+25,0])
 ax2.plot(models['wavelengths'], evening_model, color = 'orangered', lw = 3)
 ax2.plot(models['wavelengths'], morning_model, color = 'cornflowerblue', lw = 3)
 
+fout = open('models.dat', 'w')
+for i in range(len(models['wavelengths'])):
+
+    fout.write('{0:.10f} {1:.10f} {2:.10f}'.format(models['wavelengths'][i], evening_model[i], morning_model[i]))
+
+fout.close()
 #ax2.plot(models['wavelengths'], cevening_model, '--', color = 'orangered', lw = 3)
 #ax2.plot(models['wavelengths'], cmorning_model, '--', color = 'cornflowerblue', lw = 3)
 
